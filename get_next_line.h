@@ -6,7 +6,7 @@
 /*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 23:18:38 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/16 17:01:00 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/16 17:05:07 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-
-typedef struct		s_line
-{
-	char			buffer[BUFFER_SIZE + 1];
-	int				has_been_read;
-}					t_line;
 
 int					get_next_line(int fd, char **line);
 char				*ft_getline(char **line, char **current_line);

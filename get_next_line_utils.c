@@ -6,20 +6,20 @@
 /*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 23:18:32 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/15 01:07:34 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/16 17:24:15 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	len;
 
-	i = 0;
-	while (s && s[i] != '\0')
-		i++;
-	return (i);
+	len = 0;
+	while (str && str[len] != '\0')
+		len++;
+	return (len);
 }
 
 size_t	ft_strcpy(char **dst, const char *src)
@@ -40,8 +40,8 @@ size_t	ft_strcpy(char **dst, const char *src)
 
 char	*ft_strchr(const char *s, int c)
 {
-	char symbol;
-	char *src;
+	char	symbol;
+	char	*src;
 
 	src = (char*)s;
 	symbol = (char)c;
@@ -56,21 +56,24 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *src)
 {
-	char			*new_str;
-	unsigned int	i;
+	char	*str;
+	int		i;
 
-	if (!(new_str = malloc(sizeof(char) * (ft_strlen(s) + 1))))
-		return (NULL);
 	i = 0;
-	while (s && s[i])
+	while (src[i] != '\0')
+		i++;
+	if (!(str = (char *)malloc(sizeof(*str) * (i + 1))))
+		return (0);
+	i = 0;
+	while (src[i] != '\0')
 	{
-		new_str[i] = s[i];
+		str[i] = src[i];
 		i++;
 	}
-	new_str[i] = '\0';
-	return (new_str);
+	str[i] = '\0';
+	return (str);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
